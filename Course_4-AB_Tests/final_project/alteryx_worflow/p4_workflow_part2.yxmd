@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\\Mac\Home\Downloads\Udacity Pred Analytics ND\Course 4 - AB Tests\Final Project\files\aggregate_data_interim.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aggregate_data_interim.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Region" size="254" source="Summarize: GroupBy - Region" type="V_String" />
+            <Field name="StoreID" size="5" source="Summarize: GroupBy - StoreID" type="String" />
+            <Field name="Invoice Number" source="Summarize: GroupBy - Invoice Number" type="Int64" />
+            <Field name="Invoice Date" source="Summarize: GroupBy - Invoice Date" type="Date" />
+            <Field name="Week" source="Summarize: GroupBy - Week" type="Int64" />
+            <Field name="Week_Start" source="Summarize: GroupBy - Week_Start" type="Date" />
+            <Field name="Week_End" source="Summarize: GroupBy - Week_End" type="Date" />
+            <Field name="Sum_Gross Margin" scale="2" size="26" source="Summarize: Sum - Gross Margin" type="FixedDecimal" />
+            <Field name="Sum_Sales" scale="2" size="26" source="Summarize: Sum - Sales" type="FixedDecimal" />
+            <Field name="CountDistinctNonNull_NewProductFlag" source="Summarize: CountDistinctNonNull - NewProductFlag" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="150" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Region" selected="True" type="V_WString" size="254" />
+            <SelectField field="StoreID" selected="True" type="V_WString" size="5" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="258" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>CountDistinctNonNull_NewProductFlag</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2020-06-30 01:17:45</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>1</Operand>
+              <StartDate>2020-06-30 01:17:45</StartDate>
+              <EndDate>2020-06-30 01:17:45</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[CountDistinctNonNull_NewProductFlag] = 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="390" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Region" action="GroupBy" rename="Region" />
+            <SummarizeField field="StoreID" action="GroupBy" rename="StoreID" />
+            <SummarizeField field="Week" action="GroupBy" rename="Week" />
+            <SummarizeField field="Week_Start" action="GroupBy" rename="Week_Start" />
+            <SummarizeField field="Week_End" action="GroupBy" rename="Week_End" />
+            <SummarizeField field="Sum_Gross Margin" action="Sum" rename="Sum_Gross Margin" />
+            <SummarizeField field="Sum_Sales" action="Sum" rename="Sum_Sales" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="462" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">\\Mac\Home\Downloads\Udacity Pred Analytics ND\Course 4 - AB Tests\Final Project\files\Stores_Sales_Analysis_Data.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Stores_Sales_Analysis_Data.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="342" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Region" action="GroupBy" rename="Region" />
+            <SummarizeField field="StoreID" action="GroupBy" rename="StoreID" />
+            <SummarizeField field="Week" action="GroupBy" rename="Week" />
+            <SummarizeField field="Week_Start" action="GroupBy" rename="Week_Start" />
+            <SummarizeField field="Week_End" action="GroupBy" rename="Week_End" />
+            <SummarizeField field="Sum_Gross Margin" action="Sum" rename="Sum_Gross Margin" />
+            <SummarizeField field="Sum_Sales" action="Sum" rename="Sum_Sales" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="True" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>p4_workflow_part2</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

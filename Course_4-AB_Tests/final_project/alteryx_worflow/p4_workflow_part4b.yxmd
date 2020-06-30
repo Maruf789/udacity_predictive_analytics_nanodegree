@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.2">
+  <Nodes>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="222" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>Region</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2020-06-30 02:27:33</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>West</Operand>
+              <StartDate>2020-06-30 02:27:33</StartDate>
+              <EndDate>2020-06-30 02:27:33</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Region] = "West"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="318" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>!=</Operator>
+            <Field>Test_Group</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2020-06-30 02:28:40</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>CC</Operand>
+              <StartDate>2020-06-30 02:28:40</StartDate>
+              <EndDate>2020-06-30 02:28:40</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Test_Group] != "CC"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings>
+        <Position x="426" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="get.treatment.id">StoreID</Value>
+          <Value name="get.measure.id">StoreID</Value>
+          <Value name="get.measures">Trend=True,Seasonality=True,AvgMonthSales=True</Value>
+          <Value name="cntl.num">2</Value>
+          <Value name="unique.controls">True</Value>
+          <Value name="inches">True</Value>
+          <Value name="in.w">5.00</Value>
+          <Value name="in.h">5.75</Value>
+          <Value name="centimeters">False</Value>
+          <Value name="cm.w">13.00</Value>
+          <Value name="cm.h">14.95</Value>
+          <Value name="graph.resolution">1x</Value>
+          <Value name="pointsize">10</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Predictive Tools\AB_Controls.yxmc" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">\\Mac\Home\Downloads\Udacity Pred Analytics ND\Course 4 - AB Tests\Final Project\files\AB_Control_Input_Data.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AB_Control_Input_Data.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="StoreID" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="Trend" source="R-DATA:" type="Double" />
+            <Field name="Seasonality" source="R-DATA:" type="Double" />
+            <Field name="Test_Group" size="64" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Region" size="7" source="File: \\Mac\Home\Downloads\Udacity Pred Analytics ND\Course 4 - AB Tests\Final Project\p5-project-files\round-roaster-stores.csv" type="V_WString" />
+            <Field name="AvgMonthSales" source="File: \\Mac\Home\Downloads\Udacity Pred Analytics ND\Course 4 - AB Tests\Final Project\p5-project-files\round-roaster-stores.csv" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="522" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">\\Mac\Home\Downloads\Udacity Pred Analytics ND\Course 4 - AB Tests\Final Project\files\AB_Treatment_Group_West_Region.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AB_Treatment_Group_West_Region.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="12" Connection="True" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="True" />
+      <Destination ToolID="14" Connection="Data" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="True" />
+      <Destination ToolID="14" Connection="Treatments" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Controls" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>p4_workflow_part4b</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
